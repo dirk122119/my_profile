@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import user from "../assets/user.jpg";
 import MenuItem from "./MenuItem"
 
+
 export const menuItems = [
     {
       name: "Github Page",

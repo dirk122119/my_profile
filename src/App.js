@@ -4,7 +4,10 @@ import { BrowserRouter ,HashRouter, Route,Routes } from "react-router-dom";
 import { useState } from "react";
 
 import React from 'react';
-const Dashboard = (props) => <div className={`container ${props.inactive ? "inactive" : ""}`}><h1>Dashboard</h1><h2>dddddd</h2></div>;
+import CollapseCard from "./components/CollapseCard";
+import Ghpage from "./components/Ghpage";
+
+const Dashboard = (props) => <div className={`mostly-customized-scrollbar container ${props.inactive ? "inactive" : ""}`}><Ghpage /></div>;
 const Content = (props) => <div className={`container ${props.inactive ? "inactive" : ""}`}><h1>Content</h1></div>;
 const Courses = () => <h1>Content/Courses</h1>;
 const Videos = () => <h1>Content/Videos</h1>;
