@@ -51,23 +51,10 @@ body{
 }
 
 .side-menu.inactive{
-    width: 80px;
+    width: 100px;
 }
 
-.side-menu .top-section{
-    position: relative;
-}
 
-.side-menu .top-section .logo{
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    display: inline-block;
-}
-.side-menu .top-section .logo img{
-    max-width: 100%;
-    max-height: 100%;
-}
 
 .side-menu .side-menu-footer .toggle-menu-btn{
     color: #666;
@@ -83,34 +70,7 @@ body{
     right: -30px;
 }
 
-.side-menu .search-controller{
-    color: #fff;
-    position: relative;
-}
 
-.side-menu .search-controller .search-btn{
-    width: 40px;
-    height: 35px;
-    position: absolute;
-    background: transparent;
-    border: 0;
-    font-size: 20px;
-    color: #666;
-}
-
-.side-menu .search-controller input[type=text]{
-    border: 0;
-    outline: none;
-    height: 35px;
-    background: #333;
-    border-radius: 5px;
-    display: block;
-    margin: 20px 0;
-    width: 100%;
-    box-sizing: border-box;
-    padding-left: 40px;
-    color: #666;
-}
 
 .side-menu .main-menu .menu-item{
     color:white;
@@ -131,14 +91,14 @@ body{
 .side-menu .main-menu{
     margin: 5px 0;
     position: relative;
-    top:60px;
+    top:120px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 /* not required any more */
-/* .side-menu.inactive .main-menu{
-   
-} */
+.side-menu.inactive .main-menu{
+    margin: 5px 8px;
+}
 
 .side-menu .main-menu .menu-item .menu-icon{
     display: inline-block;
@@ -146,7 +106,7 @@ body{
     height: 40px;
     font-size: 20px;
     line-height: 40px;
-    text-align: center;
+    text-align:  center;
 }
 
 .side-menu .main-menu .menu-item span{
@@ -205,6 +165,7 @@ body{
 
 .side-menu-footer{
     width: 100%;
+    height:120px;
     background: #333;
     position: absolute;
     top: 0;
@@ -214,13 +175,25 @@ body{
 }
 
 .side-menu-footer .avatar{
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
     overflow: hidden;
     border-radius: 50%;
     display: inline-block;
+    margin-left:-15px;
 }
 .side-menu-footer .avatar img{
+    max-width: 100%;
+    object-position: bottom;
+}
+.photo{
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.photo img{
     max-width: 100%;
 }
 
@@ -250,6 +223,17 @@ body{
     font-size: 14px;
 }
 
+.side-menu-footer .user-info button{
+    color: white;
+    background-color: transparent;
+    border: none;
+    margin-right:10px;
+}
+
+svg{
+    border-radius: 50%;
+}
+
 .divider{
     width: 100%;
     height: 1px;
@@ -267,5 +251,62 @@ body{
 
 .container.inactive{
     width: 1024px;
-    margin-left: 80px;
+    margin-left: 100px;
+}
+
+.toggle-btn{
+    color: #666;
+    font-size: 30px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+tr {
+    border-top: 1px solid #c6cbd1;
+    background: #fff;
+  }
+  
+  th,
+  td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+  }
+  
+  table tr:nth-child(2n) {
+    background: #f6f8fa;
+  }
+
+  .card-title li{
+    list-style-type: disc;
+    margin-left: 30px;
+    font-size:18px;
+  }
+
+.headlist{
+    font-size:24px;
+    font-weight: bold;
+    padding-top: 10px;
+    
+}
+
+.headlist li{   
+    padding-top: 5px;
+}
+
+.col-lg-auto{
+    padding-top: 20px;
+}
+.card-header{
+    background-color:cornflowerblue;
+}
+.text{
+    font-weight: bold;
+    font-size:24px;
+}
+.card-body p{
+    font-size:24px;
+
 }

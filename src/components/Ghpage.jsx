@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CollapseCard,{QA} from "./CollapseCard";
-
+import CollapseCard from "./CollapseCard";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { jsx, javascript, sass, scss, css, } from "react-syntax-highlighter/dist/esm/languages/prism";
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
@@ -25,7 +27,7 @@ function Ghpage(props){
     const [article, setArticle] = useState([]);
 
     useEffect(() => {
-        fetch('https://wehelpstraoi-app-ox937.ondigitalocean.app/api/gh-pages', { headers, method: 'GET' })
+        fetch('https://wehelpstraoi-app-ox937.ondigitalocean.app/api/gh-pages?sort[0]=id', { headers, method: 'GET' })
           .then(checkStatus)
           .then(parseJSON)
           .then(({ data }) => setArticle(data))
@@ -35,11 +37,13 @@ function Ghpage(props){
         // Print errors if any
         return <div>An error occured: {error.message}</div>;
       }
+      console.log("======================")
       console.log(article)
+      console.log("======================")
 
     return(
         <div>
-        {article.map(({id,attributes}) => <CollapseCard question={attributes.title} answer={<h1>{attributes.answer}</h1>} />)}
+        {article.map(({attributes}) => <CollapseCard question={attributes.title} answer={<h1>{attributes.answer}</h1>} />)}
         </div>
     )
 }
