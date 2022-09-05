@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import CollapseCard from "./CollapseCard";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { jsx, javascript, sass, scss, css, } from "react-syntax-highlighter/dist/esm/languages/prism";
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);

@@ -307,6 +307,10 @@ tr {
     font-size:24px;
 }
 .card-body p{
-    font-size:24px;
+    font-size:20px;
 
+}
+.card-body img{
+    width: 500px;
+    height: 250px;
 }

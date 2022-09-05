@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, List,Card,CardHeader, CardTitle, CardText, CardBody, Button } from 'reactstrap';
 import { NavLink, Link } from "react-router-dom";
+import CollapseCard from "./CollapseCard";
 
 // Parses the JSON returned by a network request
 const parseJSON = (resp) => (resp.json ? resp.json() : resp);
@@ -49,21 +50,17 @@ const Projects=(props) => {
                 <CardText>
                     {attributes.abstract}
                 </CardText>
-                <NavLink to={attributes.name}>
-                    <Button>{attributes.name}</Button>
-                </NavLink>
+                
             </CardBody>
             
         </Card>
       </Col>)});
 
-      return(
-        <div>
-            <Row>
-            {projectCard}
-            </Row>
-        </div>
-      )
+return(
+    <div>
+    {projects.map(({attributes}) => <CollapseCard question={attributes.name} answer={<h1>{attributes.abstract}</h1>} />)}
+    </div>
+)
 
 }
 

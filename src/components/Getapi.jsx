@@ -18,26 +18,22 @@ const headers = { 'Content-Type': 'application/json' };
 
 const Getapi = () => {
   const [error, setError] = useState(null);
-  const [restaurants, setRestaurants] = useState([]);
+    const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
-    fetch('https://wehelpstraoi-app-ox937.ondigitalocean.app/api/gh-pages', { headers, method: 'GET' })
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(({ data }) => setRestaurants(data))
-      .catch((error) => setError(error))
-  }, [])
+    useEffect(() => {
+        fetch('https://wehelpstraoi-app-ox937.ondigitalocean.app/api/projects?sort[0]=id', { headers, method: 'GET' })
+          .then(checkStatus)
+          .then(parseJSON)
+          .then(({ data }) => setProjects(data))
+          .catch((error) => setError(error))
+      }, [])
+    if (error) {
+        // Print errors if any
+        return <div>An error occured: {error.message}</div>;
+      }
 
-  if (error) {
-    // Print errors if any
-    return <div>An error occured: {error.message}</div>;
-  }
-  console.log(restaurants)
-  return (
-    <div className="App">
-      <h1>getdata</h1>
-    </div>
-  );
+  console.log(projects)
+  return projects;
 };
 
 export default Getapi;

@@ -2,8 +2,23 @@ import React, { useEffect, useState } from "react";
 import user from "../assets/img.jpg";
 import img from "../assets/user.jpg"
 import MenuItem from "./MenuItem"
+import Getapi from "./Getapi";
 
+// Parses the JSON returned by a network request
+const parseJSON = (resp) => (resp.json ? resp.json() : resp);
 
+// Checks if a network request came back fine, and throws an error if not
+const checkStatus = (resp) => {
+  if (resp.status >= 200 && resp.status < 300) {
+    return resp;
+  }
+
+  return parseJSON(resp).then(resp => {
+    throw resp;
+  });
+};
+
+const headers = { 'Content-Type': 'application/json' };
 // const menuItems = [
 //     {
 //       name: "Github Page",
@@ -81,8 +96,11 @@ const SideMenu = (props) => {
       }, []);
 
 
+    
+      const projects=Getapi()
+      const projeItems=projects.map(({attributes})=>{return({name : attributes.name,to : "/projects/"+attributes.name})})
       
-
+      
       const menuItems = [
         {
           name: "Github Page",
@@ -102,10 +120,11 @@ const SideMenu = (props) => {
           exact: true,
           to: `/projects`,
           iconClassName: "bi bi-folder",
-          subMenus: [
-            { name: "1", to: "/projects/1" },
-            { name: "2", to: "/projects/2" },
-          ],
+          // subMenus: projeItems,URL中文有問題
+          // subMenus: [
+          //   { name: "1", to: "/projects/id1" },
+          //   { name: "2", to: "/projects/2" },
+          //   ],
         },]
 
     return(
